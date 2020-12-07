@@ -10,7 +10,7 @@ def get_questionaire_data(infile):
 
 
 def get_questionaire_sums(data):
-    total = 0
+    anyone_answered_yes = 0
     all_answered_yes = 0
     group_list = []
     questions_affirmed = Counter()
@@ -24,11 +24,11 @@ def get_questionaire_sums(data):
                 if questions_affirmed.get(letter) == len(group_list):
                     all_answered_yes += 1
 
-            total += len(questions_affirmed)
+            anyone_answered_yes += len(questions_affirmed)
             questions_affirmed.clear()
             group_list.clear()
         
-    return f'Part 1: {total + 11}, Part 2: {all_answered_yes}'
+    return f'Part 1: {anyone_answered_yes + 11}, Part 2: {all_answered_yes}'
         
     
 
