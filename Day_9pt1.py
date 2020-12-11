@@ -15,7 +15,7 @@ def find_number(data):
     first_twenty_five = deque(data[i] for i in range(25))
     the_rest = deque(data[i] for i in range(25, len(data)))
     found_addends = set()
-    
+
     i = 0
     k = 0
     index = 0
@@ -43,9 +43,39 @@ def find_number(data):
         index += 1
 
     not_found = set(data) - found_addends
-    return not_found - set(ftf_copy)
+    return list(not_found - set(ftf_copy))[0]
+
+
+def part_two(num, data):
+    data.remove(num)
+    total = 0
+    addends = []
+
+    for i in range(len(data)):
+        initial_number = data[i]
+        addends.append(initial_number)
+        for j in range(i+1, len(data)):
+            other_num = data[j]
+            addends.append(other_num)
+            total = sum(addends)
+        
+            if total > num:
+                addends.clear()
+                continue
+            else:
+                if total == num:
+                    return min(addends) + max(addends)
+        
+        addends.clear()
+        
+
+
+    
+
 
 info = load(filename)
-print(find_number(info))
+number = find_number(info)
+addends = part_two(number, info)
+print(addends)
 
 
