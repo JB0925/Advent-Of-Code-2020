@@ -26,21 +26,16 @@ def convert_to_binary_and_back(data):
                     if masks[i][j].isnumeric() and masks[i][j] == '0' and value[j] == '1':
                         value[j] = '0'
                 value = int(''.join(value),2)
-                values[num[0]] = value
+                chip_values[num[0]] = value
             else:
                 i += 1
             
     
-    return sum(values.values())
+    return sum(chip_values.values())
                 
 
 info = load(filename)
 print(convert_to_binary_and_back(info))
 
-
-
-
-
-    
 
         
