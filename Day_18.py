@@ -20,7 +20,7 @@ def load(infile):
 
 def infixToPostfix(infixexpr):
     prec = {}
-    prec["*"] = 3
+    prec["*"] = 2
     prec["/"] = 3
     prec["+"] = 3
     prec["-"] = 3
